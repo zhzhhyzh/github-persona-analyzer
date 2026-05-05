@@ -1,0 +1,43 @@
+{
+  "name": "github-persona-analyzer",
+  "version": "1.0.0",
+  "description": "MBTI-style GitHub profile analyzer that generates developer personas based on repositories, commits, and collaboration patterns.",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "start": "ts-node src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "npm run typecheck",
+    "format": "prettier --write .",
+    "test": "npm run typecheck && node -r ts-node/register src/__tests__/scoring.test.ts"
+  },
+  "keywords": [
+    "github",
+    "analyzer",
+    "mbti",
+    "developer-persona",
+    "ai",
+    "portfolio",
+    "analysis"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "openai": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.6.0",
+    "eslint": "^9.6.0",
+    "nodemon": "^3.1.4",
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
