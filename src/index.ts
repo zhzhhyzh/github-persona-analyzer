@@ -42,6 +42,7 @@ app.get("/analyze/:username", async (req: Request, res: Response) => {
     const repoLimit = parseRepoLimit(req.query.limit);
 
     if (!username) {
+      //Test
       return res.status(400).json({
         success: false,
         error: "Invalid GitHub username",
