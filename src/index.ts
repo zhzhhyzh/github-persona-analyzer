@@ -2,6 +2,7 @@
 
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
+import path from "path";
 
 import { collectGitHubData } from "./collectors/githubCollector";
 import { generateReport } from "./generators/reportGenerator";
@@ -16,8 +17,9 @@ const PORT = Number(process.env.PORT) || 3000;
 const USERNAME_PATTERN = /^[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,37}[a-zA-Z0-9])?$/;
 
 app.use(express.json());
+app.use(express.static(path.join(process.cwd(), "public")));
 
-app.get("/", (_req: Request, res: Response) => {
+app.get("/api", (_req: Request, res: Response) => {
   res.json({
     name: "GitHub Persona Analyzer",
     status: "ok",

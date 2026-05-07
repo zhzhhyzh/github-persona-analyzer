@@ -6,6 +6,8 @@ The goal is not to judge skill. It gives a lightweight, explainable view of how 
 
 ## Features
 
+- Serve a polished browser UI from the same Express app
+- Select sample usernames, repository depth, persona dimensions, and evidence cards
 - Analyze public GitHub profiles through the GitHub REST API
 - Score three developer-persona axes: Builder vs Explorer, Solo Thinker vs Collaborator, Systematic vs Creative
 - Generate a persona name, type code, confidence score, evidence list, and Markdown report
@@ -20,6 +22,12 @@ Start the server:
 ```bash
 npm install
 npm run start
+```
+
+Open the UI:
+
+```text
+http://localhost:3000
 ```
 
 Health check:

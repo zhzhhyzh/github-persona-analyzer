@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Persona Analyzer</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace">
+        <div class="intro">
+          <p class="eyebrow">GitHub Persona Analyzer</p>
+          <h1>Analyze a developer profile</h1>
+        </div>
+
+        <form class="analyze-form" id="analyzeForm">
+          <label class="field">
+            <span>GitHub username</span>
+            <input
+              id="usernameInput"
+              name="username"
+              autocomplete="off"
+              placeholder="octocat"
+              required
+            />
+          </label>
+
+          <div class="limit-control" aria-label="Repository limit">
+            <button
+              type="button"
+              class="limit-option is-selected"
+              data-limit="10"
+            >
+              10
+            </button>
+            <button type="button" class="limit-option" data-limit="20">
+              20
+            </button>
+            <button type="button" class="limit-option" data-limit="30">
+              30
+            </button>
+          </div>
+
+          <button class="primary-action" type="submit">Analyze</button>
+        </form>
+
+        <div class="quick-select" aria-label="Example usernames">
+          <button type="button" data-user="octocat">octocat</button>
+          <button type="button" data-user="torvalds">torvalds</button>
+          <button type="button" data-user="gaearon">gaearon</button>
+        </div>
+
+        <p class="status-message" id="statusMessage" role="status"></p>
+
+        <section class="result-grid is-empty" id="resultGrid">
+          <article class="persona-panel">
+            <div class="panel-topline">
+              <span class="label">Persona</span>
+              <span class="confidence" id="confidenceValue">0</span>
+            </div>
+            <h2 id="personaName">Waiting for analysis</h2>
+            <p id="personaTagline">Select a profile to begin.</p>
+            <div class="type-code" id="typeCode">---</div>
+          </article>
+
+          <article class="profile-panel">
+            <div class="panel-topline">
+              <span class="label">Profile</span>
+              <a id="profileLink" href="#" target="_blank" rel="noreferrer"
+                >Open</a
+              >
+            </div>
+            <h2 id="profileName">No profile selected</h2>
+            <p id="profileBio">Public GitHub signals will appear here.</p>
+            <div class="profile-stats">
+              <span><strong id="repoCount">0</strong> repos</span>
+              <span><strong id="followerCount">0</strong> followers</span>
+              <span><strong id="followingCount">0</strong> following</span>
+            </div>
+          </article>
+        </section>
+
+        <section class="analysis-layout">
+          <div class="dimensions-panel">
+            <div class="section-heading">
+              <p class="eyebrow">Dimensions</p>
+              <h2 id="selectedDimensionTitle">Select a dimension</h2>
+            </div>
+            <div class="dimension-list" id="dimensionList"></div>
+          </div>
+
+          <aside class="detail-panel" id="detailPanel">
+            <p class="eyebrow">Selected</p>
+            <h2 id="detailTitle">Nothing selected</h2>
+            <p id="detailBody">
+              Analyze a profile, then choose a dimension or evidence item.
+            </p>
+          </aside>
+        </section>
+
+        <section class="evidence-section">
+          <div class="section-heading">
+            <p class="eyebrow">Evidence</p>
+            <h2>Signal cards</h2>
+          </div>
+          <div class="evidence-list" id="evidenceList"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
